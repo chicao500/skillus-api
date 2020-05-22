@@ -11,6 +11,8 @@ const typeDefs = gql`
     }
 `;
 
+const port = process.env.PORT || 8080
+
 const resolvers = {
   Query: {
     hello: () =>
@@ -38,4 +40,4 @@ app.get("/", (req, res) => {
     res.send("Hello Skillus");
 });
 
-app.listen(8080);
+app.listen(port);
