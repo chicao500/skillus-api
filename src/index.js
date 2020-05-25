@@ -37,7 +37,7 @@ const apolloServer = new ApolloServer({
 apolloServer.applyMiddleware({ app });
 
 app.get("/", (req, res) => {
-    res.send("Hello Agora Fo8i");
+    res.send("Hello Agora Foi");
 });
 
 app.listen(port);
