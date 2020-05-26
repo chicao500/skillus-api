@@ -13,8 +13,7 @@ const apolloServer = new ApolloServer({
     typeDefs: [userType, queryType, skillType, contactType],
     resolvers: [userResolver, skillResolver],
 });
-  
+
 apolloServer.applyMiddleware({ app, cors: false });
-  
 
 app.listen(8080);

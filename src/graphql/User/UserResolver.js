@@ -1,4 +1,3 @@
-
 import { userModel } from "../../models/UserModel";
 
 export const userResolver = {
@@ -13,16 +12,15 @@ export const userResolver = {
 
     User: {
         skill(parent) {
-            return userModel.getUserSkills(parent.id)
+            return userModel.getUserSkills(parent.id);
         },
 
         media(parent) {
-            return userModel.getUserRating(parent.id)
+            return userModel.getUserRating(parent.id);
         },
 
         contact(parent) {
             return userModel.getUserContacts(parent.id);
-        }
+        },
     },
 };
-

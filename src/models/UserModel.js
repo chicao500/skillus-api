@@ -18,16 +18,13 @@ export const userModel = {
 
     get(id) {
         return new Promise((resolve, reject) => {
-            db.query(
-                `SELECT * FROM user WHERE id = ${id}`,
-                (error, result) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(result[0]);
-                    }
+            db.query(`SELECT * FROM user WHERE id = ${id}`, (error, result) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result[0]);
                 }
-            );
+            });
         });
     },
 
@@ -37,20 +34,19 @@ export const userModel = {
             INNER JOIN skill S on S.id = US.skill_id 
             WHERE US.user_id = ${userId}`;
             db.query(query, (error, result) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(result);
-                    }
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result);
                 }
-            );
+            });
         });
     },
 
     getUserRating(userId) {
         return new Promise((resolve, reject) => {
             const query = `CALL MEDIA(${userId})`;
-            
+
             db.query(query, (error, result) => {
                 if (error) {
                     reject(error);
@@ -70,11 +66,11 @@ export const userModel = {
 
             db.query(query, (error, result) => {
                 if (error) {
-                    reject(error)
+                    reject(error);
                 } else {
                     resolve(result);
                 }
             });
         });
-    }
+    },
 };

@@ -15,17 +15,13 @@ export const skillModel = {
 
     get(id) {
         return new Promise((resolve, reject) => {
-            db.query(
-                `SELECT * FROM skill WHERE id = ${id}`,
-                (error, result) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(result[0]);
-                    }
+            db.query(`SELECT * FROM skill WHERE id = ${id}`, (error, result) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result[0]);
                 }
-            );
+            });
         });
     },
-
 };
