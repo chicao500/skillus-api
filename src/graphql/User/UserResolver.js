@@ -1,35 +1,28 @@
-import connection from "../../config/connection";
+
 import { userModel } from "../../models/UserModel";
 
 export const userResolver = {
-  Query: {
-    users() {
-      return userModel.UserModel.all();
+    Query: {
+        users() {
+            return userModel.all();
+        },
+        user(_, args) {
+            return userModel.get(args.id);
+        },
     },
-    user(_, args) {
-      return userModel.UserModel.get(args.id);
-     },
-  },
-  User: {
-    skill(parent) {
-      return new Promise((resolve, reject) => {
-        connection.query(
-          `SELECT US.id, US.skill_id, S.name 
-          from user_skill US
-          inner join skill S on S.id = US.skill_id 
-          where user_id = ${parent.user_status_id}`,
-          
-            (error, result) => {
-              if (error) {
-                reject(error);
-              } else {
-                console.log(result);
-                resolve(result);
-              }
-            }
-          );
-        });
-      },
+
+    User: {
+        skill(parent) {
+            return userModel.getUserSkills(parent.id)
+        },
+
+        media(parent) {
+            return userModel.getUserRating(parent.id)
+        },
+
+        contact(parent) {
+            return userModel.getUserContacts(parent.id);
+        }
     },
-  };
-        
+};
+

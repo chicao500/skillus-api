@@ -1,33 +1,31 @@
-import connection from "../config/connection";
+import db from "../config/database";
 
 export const skillModel = {
-    SkillModel: {
-
-        all() {
+    all() {
         return new Promise((resolve, reject) => {
-            connection.query(`SELECT * FROM skill`, (error, result) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(result);
-            }
+            db.query(`SELECT * FROM skill`, (error, result) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result);
+                }
             });
         });
-        },
+    },
 
-        get(id) {
+    get(id) {
         return new Promise((resolve, reject) => {
-            connection.query(
-            `SELECT * FROM skill WHERE id = ${id}`,
-            (error, result) => {
-                if (error) {
-                reject(error);
-                } else {
-                resolve(result[0]);
+            db.query(
+                `SELECT * FROM skill WHERE id = ${id}`,
+                (error, result) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(result[0]);
+                    }
                 }
-            }
             );
         });
-        },
     },
+
 };
