@@ -14,6 +14,7 @@ const apolloServer = new ApolloServer({
     resolvers: [userResolver, skillResolver],
 });
 
+const port = process.env.PORT || 8080
 apolloServer.applyMiddleware({ app, cors: false });
 
-app.listen(8080);
+app.listen(port);
