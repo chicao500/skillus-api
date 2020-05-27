@@ -1,7 +1,7 @@
-import {gql} from "apollo-server"
+import { gql } from "apollo-server";
 
-export default mutationType = gql`
+export const mutationType = gql`
     type Mutation {
         
     }
-` 
+`;
