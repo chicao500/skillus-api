@@ -1,4 +1,7 @@
-# TODO
+# API da  Aplicação do Skill.us 
 
-- Add babel, eslint, prettier
-- Pensar em estrutura de pastas
+## Para instalar as dependencias
+>npm install
+
+## Para iniciar a aplicação com o Node
+>npm run dev
