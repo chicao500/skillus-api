@@ -17,6 +17,6 @@ const apolloServer = new ApolloServer({
 
 const port = process.env.PORT || 4000;
 apolloServer.applyMiddleware({ app });
-app.get("/",(req, res) => res.send({ "API Skillus" }));
+app.get("/", (req, res) => res.send({ message: "API Skillus" }));
 
 app.listen(port);
