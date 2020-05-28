@@ -4,4 +4,4 @@
 >npm install
 
 ## Para iniciar a aplicação com o Node
->npm run dev
+>npm start
